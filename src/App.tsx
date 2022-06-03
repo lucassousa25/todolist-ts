@@ -32,6 +32,10 @@ const App = () => {
     setList(newList);
   }
 
+  const handleDeleteTask = (deleteTaskById: number): void => {
+    setList(list.filter((task) => task.id !== deleteTaskById));
+  }
+
   return (
     <S.Container>
       <S.Area>
@@ -43,7 +47,8 @@ const App = () => {
           <ListItem 
             key={index}
             item={item}
-            onChange={handleTaskChange}  
+            onChange={handleTaskChange}
+            deleteTask={handleDeleteTask} 
           />
         ))}
       </S.Area>

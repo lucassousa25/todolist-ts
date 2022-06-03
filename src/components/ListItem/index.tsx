@@ -4,9 +4,10 @@ import { Item } from '../../types/Item';
 type Props = {
   item: Item,
   onChange: (id: number, done: boolean) => void
+  deleteTask: (deleteTaskById: number) => void
 };
 
-export const ListItem = ({ item, onChange }: Props) => {
+export const ListItem = ({ item, onChange, deleteTask }: Props) => {
   // const [isChecked, setIsChecked] = useState(item.done);
 
   return (
@@ -17,6 +18,7 @@ export const ListItem = ({ item, onChange }: Props) => {
         onChange={e => onChange(item.id, e.target.checked)}
       />
       <label>{item.name}</label>
+      <span className='delete' onClick={() => deleteTask(item.id)}>✖</span>
     </S.Container>
   )
 }
