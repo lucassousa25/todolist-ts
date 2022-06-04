@@ -28,6 +28,13 @@ export const Container = styled.div(({ done }: ContainerProps) => (
   .delete {
     margin-left: auto;
     cursor: pointer;
+    transition: transform 0.4s;
+    transform: translateX(0) scale(0.8);
+  }
+
+  .delete:hover {
+    color: red;
+    transform: translateX(0) scale(1.4);
   }
 `
 ));
