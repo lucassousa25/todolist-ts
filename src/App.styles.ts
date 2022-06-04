@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #17181f;
-  color: #797A81;
+  background: rgb(114,124,141);
+  background: linear-gradient(45deg, rgba(114,124,141,1) 0%, rgba(74,75,104,1) 36%, rgba(46,46,63,1) 100%);
+  color: #ddd;
   min-height: 100vh;
   display: flex;
 `;
@@ -17,7 +18,7 @@ export const Area = styled.div`
   max-height: 80vh;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px #111;
+  box-shadow: 0 0 5px #222;
   overflow: scroll;
   overflow-x: hidden; 
 
