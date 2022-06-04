@@ -4,6 +4,9 @@ import { Item } from './types/Item';
 import { ListItem } from './components/ListItem';
 import { AddArea } from './components/AddArea';
 
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const App = () => {
 
   const [list, setList] = useState<Item[]>([
@@ -19,6 +22,8 @@ const App = () => {
       done: false
     });
     setList(newList);
+
+    toast.success('Nova tarefa adicionada!');
   }
 
   const handleTaskChange = (id: number, done: boolean) => {
@@ -30,10 +35,13 @@ const App = () => {
     }
 
     setList(newList);
+    done ? toast.success(`Tarefa ${id} concluída!`) : toast.warn(`Tarefa ${id} habilitada!`) ;
   }
 
   const handleDeleteTask = (deleteTaskById: number): void => {
     setList(list.filter((task) => task.id !== deleteTaskById));
+
+    toast.error('Tarefa deletada!');
   }
 
   return (
@@ -41,6 +49,12 @@ const App = () => {
       <S.Area>
         <S.Header>Lista de Tarefas 📝</S.Header>
 
+        <ToastContainer
+          autoClose={2500}
+          pauseOnHover={false}
+          transition={Slide}
+          theme={'dark'}
+        />
         <AddArea onEnter={handleAddTask} />
 
         {list.map((item, index) => (
