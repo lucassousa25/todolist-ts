@@ -10,7 +10,7 @@ export const AddArea = ({ onEnter }: Props) => {
   const [inputText, setInputText] = useState('');
 
   const handleKeyUp = (e: KeyboardEvent) => {
-    if(inputText === '') toast.warn('Digite uma nova tarefa.');
+    if((e.code === 'Enter' || e.code === 'NumpadEnter') && inputText === '') toast.warn('Digite uma nova tarefa.');
 
     if((e.code === 'Enter' || e.code === 'NumpadEnter') && inputText !== ''){
       onEnter(inputText);
